@@ -19,13 +19,18 @@ const config: Config = {
         helveticaLight: ["var(--font-helveticaLight)"],  
         helveticaBold: ["var(--font-helveticaBold)"], 
       },
+
+      colors: {
+        background: '#F5F5F7',
+      },
+
       screens: {
         'md': '768px',
         'lg': '1280px',
         'xl': '1920x',
         '2xl': '2560px',
         '3xl': '3440px',
-      }
+      },
     },
   },
   plugins: [],

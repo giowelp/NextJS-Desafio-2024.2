@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import Header from "@/components/header/nav";
 
-
+// Import das fontes locais
 
 const helvetica = localFont({
   src: [
@@ -46,16 +47,21 @@ export const metadata: Metadata = {
   description: "Desafio Next.JS, Typescript, Tailwind, Prisma, semestre 2024.2 para todos os membros da Code JR",
 };
 
+
+// Normal
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
+    
     <html
       lang="en"
       className={`${helvetica.variable} ${helveticaRounded.variable} ${helveticaLight.variable} ${helveticaBold.variable}`}
     >
+      <Header />
       <body>{children}</body>
     </html>
   );
