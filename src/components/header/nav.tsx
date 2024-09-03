@@ -3,45 +3,60 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { Search as SearchIcon, X, Phone, ShoppingCart } from 'lucide-react';
 
 const links = [
+    {href: '/home', label: 'Home'},
     {href: '/products', label: 'Produtos'},
-    {href: '/admin', label: 'admin'},
 ];
 
 export default function Header(){
-    const [isNavOpen, setIsNavOpen] = useState(false)
-    const [isSearchOpen, setIsSearchOpen] = useState(false)
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-    const toggleNav = () => setIsNavOpen(!isNavOpen)
-    const toggleSearch = () => setIsSearchOpen(!isSearchOpen)
-
-    const toggleNavSearch = () => {
-        if(isNavOpen){
-            toggleSearch()
-        } else {
-            toggleNav()
-        }
-    }
-
+    const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
     return(
-        <header className=" bg-background sticky top-0 z-20 mx-auto w-full py-8 px-4 md:p-0 mb-8">
-            <div className="flex flex-wrap items-center justify-between w-full md:w-10/12 mx-auto">
-                <Link href='/' className="flex gap-4 items-center">
+        <header className="bg-background sticky top-0 z-20 mx-auto w-full py-4 px-4">
+            <div className="flex items-center justify-between w-full md:w-10/12 mx-auto">
+                
+                
+                <nav className="flex items-center space-x-8">
+                    {links.map((link, index) => (
+                        <Link href={link.href} key={index}>
+                            <span className="text-lg text-black font-helveticaLight">{link.label}</span>
+                        </Link>
+                    ))}
+                    <button onClick={toggleSearch} className="flex items-center">
+                        {isSearchOpen ? (
+                            <X className="w-6 h-6 text-black cursor-pointer hover:bg-white/20 transition-all duration-200 p-1 rounded-xl" />
+                        ) : (
+                            <SearchIcon className="w-6 h-6 text-black cursor-pointer hover:bg-white/20 transition-all duration-200 p-1 rounded-xl" />
+                        )}
+                    </button>
+                </nav>
+
+                
+                <div className="flex items-center space-x-6">
+                    <Link href="/login" className="text-black">
+                        Login
+                    </Link>
+                    <Phone className="w-6 h-6 text-black cursor-pointer" />
+                    <ShoppingCart className="w-6 h-6 text-black cursor-pointer" />
+                </div>
+
+                
+                <Link href='/' className="flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-4">
                     <Image 
-                    src={'/logo.png'} 
-                    alt="Logo da loja" 
-                    width={904} 
-                    height={904}
-                    className="h-20 w-20 rounded-xl"
+                        src={'/logo/logo.png'} 
+                        alt="Logo da loja" 
+                        width={50} 
+                        height={50}
+                        className="h-10 w-10"
                     />
-                    <span className="text-black font-helvetica hidden md:block text-3xl">|</span>
-                    <span className="text-black font-helvetica hidden md:block text-3xl">VANGUARD</span>
+                    <span className="text-black font-catullBQ text-2xl ml-2">VANGUARD</span>
                 </Link>
+                
             </div>
-
-
         </header>
-    )
+    );
 }

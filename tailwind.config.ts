@@ -17,7 +17,8 @@ const config: Config = {
         helvetica: ["var(--font-helvetica)"],
         helveticaRounded: ["var(--font-helveticaRounded)"],
         helveticaLight: ["var(--font-helveticaLight)"],  
-        helveticaBold: ["var(--font-helveticaBold)"], 
+        helveticaBold: ["var(--font-helveticaBold)"],
+        catullBQ: ["var(--font-catullBQ)"], 
       },
 
       colors: {

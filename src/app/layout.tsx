@@ -42,9 +42,18 @@ const helveticaBold = localFont({
   variable: "--font-helveticaBold",
 });
 
+const catullBQ = localFont({
+  src: [
+    {
+      path: "../public/fonts/CATULL.ttf",
+    },
+  ],
+  variable: "--font-catullBQ",
+});
+
 export const metadata: Metadata = {
   title: "VANGUARD",
-  description: "Desafio Next.JS, Typescript, Tailwind, Prisma, semestre 2024.2 para todos os membros da Code JR",
+  description: "E-commerce de mangás",
 };
 
 
@@ -59,10 +68,12 @@ export default function RootLayout({
     
     <html
       lang="en"
-      className={`${helvetica.variable} ${helveticaRounded.variable} ${helveticaLight.variable} ${helveticaBold.variable}`}
+      className={`${helvetica.variable} ${helveticaRounded.variable} ${helveticaLight.variable} ${helveticaBold.variable} ${catullBQ.variable}`}
     >
+      
+      <body>
       <Header />
-      <body>{children}</body>
+      {children}</body>
     </html>
   );
 }
