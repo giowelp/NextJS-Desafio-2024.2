@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import "./globals.css";
 import Header from "@/components/header/nav";
+import Footer from "@/components/footer/footer";
 
 // Import das fontes locais
 
@@ -73,7 +74,9 @@ export default function RootLayout({
       
       <body>
       <Header />
-      {children}</body>
+      {children}
+      <Footer />
+      </body>
     </html>
   );
 }

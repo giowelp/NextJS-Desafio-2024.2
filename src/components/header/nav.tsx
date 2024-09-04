@@ -16,7 +16,7 @@ export default function Header(){
     const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
     return(
-        <header className="bg-background sticky top-0 z-20 mx-auto w-full py-4 px-4">
+        <header className="bg-background sticky top-0 z-20 mx-auto w-full pb-6 px-4 pt-10">
             <div className="flex items-center justify-between w-full md:w-10/12 mx-auto">
                 
                 
