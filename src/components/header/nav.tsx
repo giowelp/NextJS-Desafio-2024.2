@@ -36,7 +36,7 @@ export default function Header(){
                 </nav>
 
                 
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-6 font-helveticaLight">
                     <Link href="/login" className="text-black">
                         Login
                     </Link>

@@ -1,13 +1,21 @@
 import Image from 'next/image';
 import { ShoppingCart, Plus } from 'lucide-react';
 
-export default function ProductCard() {
+type ProductCardProps = {
+    title: string;
+    volume: string;
+    price: string;
+    image: string;
+}
+export default function ProductCard({title, volume, price, image}: ProductCardProps) {
   return (
-    <div className="bg-white rounded-[13%] shadow-lg p-4 flex flex-col items-center" style={{ width: '100%', maxWidth: '234px', height: '100%', maxHeight: '332px' }}>
+
+    
+    <div className="bg-white rounded-[13%] shadow-lg p-4 flex flex-col items-center w-full max-w-[234px] h-full max-h-[332px] mb-10">
       {/* Imagem do Produto */}
-      <div className="relative w-full mb-2 mt-2" style={{ height: '162px' }}>
+      <div className="relative w-full mb-2 mt-2 h-[162px]">
         <Image 
-          src="/images/vagabondvol1.png" 
+          src={image}
           alt="Vagabond Volume 1"
           fill
           className="rounded-lg object-contain"
@@ -16,9 +24,9 @@ export default function ProductCard() {
 
       {/* Informações do Produto */}
       <div className="text-center flex-grow mb-2">
-        <h2 className="text-base text-black mb-1 font-helveticaRounded">VAGABOND</h2>
-        <p className="text-gray-500 text-xs mb-1 font-helvetica">Vol. 1</p>
-        <p className="text-lg text-black font-helveticaRounded">R$ 37,90</p>
+        <h2 className="text-base text-black uppercase mb-1 font-helveticaRounded">{title}</h2>
+        <p className="text-gray-500 text-xs mb-1 font-helvetica">{volume}</p>
+        <p className="text-lg text-black font-helveticaRounded">{price}</p>
       </div>
 
       {/* Botões de Ação */}

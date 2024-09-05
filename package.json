@@ -2,6 +2,10 @@
   "name": "desafio-nextjs-2024.2",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "seed": "ts-node src/prisma/seed.ts",
+    "schema": "src/prisma/schema.prisma"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,13 +14,15 @@
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
+    "embla-carousel-autoplay": "^8.2.1",
+    "embla-carousel-react": "^8.2.1",
     "lucide-react": "^0.438.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.16.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
@@ -27,6 +33,6 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.16.2",
-    "typescript": "^5"
+    "typescript": "^5.5.4"
   }
 }

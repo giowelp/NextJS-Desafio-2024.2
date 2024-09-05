@@ -5,10 +5,10 @@ import { Instagram, X } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="bg-background w-full py-4 mt-24 flex flex-col items-center">
-      {/* Container Principal */}
+      {/* Container*/}
       <div className="flex flex-col md:flex-row items-center justify-between w-full md:w-10/12 mx-auto md:px-0 px-4 md:space-x-6 h-auto ">
         
-        {/* Logo da Loja */}
+        {/* Logo*/}
         <div className="flex items-center flex-1 mb-4 md:mb-0 justify-center md:justify-start">
           <Image 
             src="/logo/logo.png" 
@@ -19,9 +19,9 @@ export default function Footer() {
           />
         </div>
         
-        {/* Contêiner de Informações e Redes Sociais */}
+        {/* Redes Sociais */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-center flex-1 md:space-x-20">
-          {/* Informações de Contato */}
+          
           <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4 md:mb-0">
             <h2 className="text-black font-helveticaBold text-2xl mb-2 whitespace-nowrap">Contato</h2>
             <p className="text-gray-500 text-sm font-helveticaLight">Juiz de Fora, MG</p>
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Imagem do Musashi */}
+        {/* Musashi */}
         <div className="flex items-center flex-1 h-full justify-center md:justify-end">
           <Image 
             src="/images/musashi.png" 

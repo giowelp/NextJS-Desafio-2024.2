@@ -72,7 +72,7 @@ export default function RootLayout({
       className={`${helvetica.variable} ${helveticaRounded.variable} ${helveticaLight.variable} ${helveticaBold.variable} ${catullBQ.variable}`}
     >
       
-      <body>
+      <body className="bg-background">
       <Header />
       {children}
       <Footer />
