@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Search as SearchIcon, X, Phone, ShoppingCart } from 'lucide-react';
 
 const links = [
-    {href: '/home', label: 'Home'},
+    {href: '/', label: 'Home'},
     {href: '/products', label: 'Produtos'},
 ];
 
@@ -39,8 +39,10 @@ export default function Header(){
                 <div className="flex items-center space-x-6 font-helveticaLight">
                     <Link href="/login" className="text-black">
                         Login
-                    </Link>
+                    </Link >
+                    <Link href="/contact" className="text-black">
                     <Phone className="w-6 h-6 text-black cursor-pointer" />
+                    </Link>
                     <ShoppingCart className="w-6 h-6 text-black cursor-pointer" />
                 </div>
 
@@ -53,7 +55,7 @@ export default function Header(){
                         height={50}
                         className="h-10 w-10"
                     />
-                    <span className="text-black font-catullBQ text-2xl ml-2">VANGUARD</span>
+                    <span className="text-black font-catullBQ text-2xl ml-2 hidden lg:flex">VANGUARD</span>
                 </Link>
                 
             </div>
