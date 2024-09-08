@@ -1,89 +1,283 @@
 import { PrismaClient } from '@prisma/client';
+import { title } from 'process';
 
 const prisma = new PrismaClient();
 
 async function main() {
   const mangas = [
     {
-      title: 'Wireless Mouse',
-      description: 'A smooth and responsive wireless mouse.',
-      price: 29.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol1.png",
+      volume: 1,
     },
+    
     {
-      title: 'Mechanical Keyboard',
-      description: 'A durable mechanical keyboard with RGB lighting.',
-      price: 89.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol2.png",
+      volume: 2,
     },
+    
     {
-      title: 'Noise Cancelling Headphones',
-      description: 'Comfortable headphones with active noise cancelling.',
-      price: 199.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol3.png",
+      volume: 3,
     },
+    
     {
-      title: '4K Monitor',
-      description: 'A high-resolution 4K monitor for professional use.',
-      price: 399.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol4.png",
+      volume: 4,
     },
+    
     {
-      title: 'USB-C Hub',
-      description: 'A versatile USB-C hub with multiple ports.',
-      price: 49.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol5.png",
+      volume: 5,
     },
+    
     {
-      title: 'Portable SSD',
-      description: 'A fast and portable SSD with 1TB capacity.',
-      price: 129.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol6.png",
+      volume: 6,
     },
+    
     {
-      title: 'Bluetooth Speaker',
-      description: 'A compact Bluetooth speaker with excellent sound quality.',
-      price: 59.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol7.png",
+      volume: 7,
     },
+    
     {
-      title: 'Smartwatch',
-      description: 'A stylish smartwatch with fitness tracking features.',
-      price: 149.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol8.png",
+      volume: 8,
     },
+    
     {
-      title: 'Gaming Chair',
-      description: 'An ergonomic gaming chair with lumbar support.',
-      price: 249.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol9.png",
+      volume: 9,
     },
+    
     {
-      title: 'Webcam',
-      description: 'A high-definition webcam for video conferencing.',
-      price: 79.99,
+      title: 'VAGABOND',
+      description: 'samurai',
+      price: 37.99,
       createdAt: new Date(),
-      image: "",
-      volume: 0,
+      image: "/images/vagabondvol10.png",
+      volume: 10,
     },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol1.png",
+      volume: 1,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol2.png",
+      volume: 2,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol3.png",
+      volume: 3,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol4.png",
+      volume: 4,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol5.png",
+      volume: 5,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol6.png",
+      volume: 6,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol7.png",
+      volume: 7,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol8.png",
+      volume: 8,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol9.png",
+      volume: 9,
+    },
+
+    {
+      title: 'BERSERK',
+      description: 'medieval',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/berserkvol10.png",
+      volume: 10,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol1.png",
+      volume: 1,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol2.png",
+      volume: 2,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol3.png",
+      volume: 3,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol4.png",
+      volume: 4,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol5.png",
+      volume: 5,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol6.png",
+      volume: 6,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol7.png",
+      volume: 7,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol8.png",
+      volume: 8,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol9.png",
+      volume: 9,
+    },
+
+    {
+      title: 'THE CLIMBER',
+      description: 'mountain',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/theclimbervol10.png",
+      volume: 10,
+    },
+
+
+
+    
   ];
 
   for (const manga of mangas) {
