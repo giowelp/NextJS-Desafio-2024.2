@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { updateProduct } from '@/actions/admin/actions';
 
 interface Product {
   id: number;
@@ -7,7 +8,7 @@ interface Product {
   volume: number;
   price: string;
   description: string;
-  imageUrl: string; // Adicionando o campo de URL da imagem
+  imageUrl: string;
 }
 
 interface EditModalProps {
@@ -20,18 +21,31 @@ interface EditModalProps {
 const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave }) => {
   const [editedProduct, setEditedProduct] = useState<Product | null>(null);
 
-  // Atualiza o estado interno quando o produto muda
   useEffect(() => {
     if (product) {
       setEditedProduct(product);
     }
   }, [product]);
 
-  const handleSave = () => {
-    if (editedProduct && editedProduct.name && editedProduct.price && editedProduct.description && editedProduct.imageUrl) {
-      console.log('Produto atualizado:', editedProduct); // Log de depuração
-      onSave(editedProduct);
-      onClose();
+  const handleSave = async (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (editedProduct) {
+      try {
+        const updatedProduct = await updateProduct(
+          editedProduct.id,
+          editedProduct.name,
+          editedProduct.volume,
+          editedProduct.price,
+          editedProduct.description,
+          editedProduct.imageUrl
+        );
+        onSave(updatedProduct); // Atualiza o estado no componente pai
+        onClose(); // Fecha o modal após a atualização
+        window.location.reload(); // Recarrega a página para refletir a atualização
+      } catch (error) {
+        console.error('Erro ao atualizar produto:', error);
+      }
     }
   };
 
@@ -101,7 +115,7 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave 
         <button className="bg-blue-500 text-white p-2 rounded mr-2" onClick={handleSave}>
           Salvar
         </button>
-        <button className="bg-red-500 text-white p-2 rounded" onClick={onClose}>
+        <button className="bg-red-500 text-white p-2 rounded" onClick={(e) => { e.preventDefault(); onClose(); }}>
           Cancelar
         </button>
       </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
+import { createProduct } from '@/actions/admin/actions'; // Importando a função de criação do produto
 
 interface Product {
   id: number;
@@ -6,7 +8,7 @@ interface Product {
   volume: number;
   price: string;
   description: string;
-  imageUrl: string; // Adicionando o campo de URL da imagem
+  imageUrl: string;
 }
 
 interface CreateModalProps {
@@ -22,13 +24,24 @@ const CreateModal: React.FC<CreateModalProps> = ({ isOpen, onClose, onCreate }) 
     volume: 1,
     price: '',
     description: '',
-    imageUrl: '', // Inicializando o campo de URL da imagem
+    imageUrl: '',
   });
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (newProduct.name && newProduct.price && newProduct.description && newProduct.imageUrl) {
-      onCreate({ ...newProduct, id: Math.floor(Math.random() * 1000) }); // Gera um ID único
-      onClose();
+      try {
+        // Chama a função para criar um novo produto no backend
+        const createdProduct = await createProduct(
+          newProduct.name,
+          newProduct.volume,
+          parseFloat(newProduct.price.replace('R$', '').trim()), // Converte o preço para número
+          newProduct.imageUrl
+        );
+        onCreate(createdProduct); // Atualiza a lista de produtos no componente pai
+        onClose(); // Fecha o modal
+      } catch (error) {
+        console.error('Erro ao criar o produto:', error); // Log de erro
+      }
     }
   };
 
@@ -46,7 +59,7 @@ const CreateModal: React.FC<CreateModalProps> = ({ isOpen, onClose, onCreate }) 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <form className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg p-8 shadow-lg max-w-lg w-full">
         <h2 className="text-2xl font-semibold mb-4">Criar Novo Produto</h2>
         <div className="mb-4">
@@ -93,14 +106,14 @@ const CreateModal: React.FC<CreateModalProps> = ({ isOpen, onClose, onCreate }) 
             <Image src={newProduct.imageUrl} alt="Imagem do produto" width={100} height={100} className="rounded" />
           </div>
         )}
-        <button className="bg-green-500 text-white p-2 rounded mr-2" onClick={handleCreate}>
+        <button type="button" className="bg-green-500 text-white p-2 rounded mr-2" onClick={handleCreate}>
           Criar
         </button>
-        <button className="bg-red-500 text-white p-2 rounded" onClick={onClose}>
+        <button type="button" className="bg-red-500 text-white p-2 rounded" onClick={onClose}>
           Cancelar
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

@@ -43,6 +43,8 @@ export async function getMangaCard2() {
             volume: true,
             image: true,
             price: true,
+            description: true,
+            id: true,
         },
         
 

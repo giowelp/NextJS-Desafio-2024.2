@@ -7,6 +7,7 @@ interface Product {
   volume: number;
   price: string;
   description: string;
+  image: string; // Incluindo o campo de  da imagem
 }
 
 interface ViewModalProps {
@@ -21,15 +22,17 @@ const ViewModal: React.FC<ViewModalProps> = ({ isOpen, product, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg p-8 shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-semibold mb-4">{product.name}</h2>
+        <h2 className="text-2xl font-semibold mb-4">{product.title}</h2>
         <div className="flex items-center mb-4">
-          <Image
-            src="/images/vagabondvol1.png" // Altere o caminho da imagem conforme necessário
-            alt={`Capa de ${product.name}`}
-            width={100}
-            height={150}
-            className="rounded mr-4"
-          />
+          {product.image && ( // Verifica se há uma imagem disponível
+            <Image
+              src={product.image} // Utiliza a  da imagem do produto
+              alt={`Capa de ${product.title}`}
+              width={100}
+              height={150}
+              className="rounded mr-4"
+            />
+          )}
           <div>
             <p><strong>Volume:</strong> {product.volume}</p>
             <p><strong>Preço:</strong> {product.price}</p>

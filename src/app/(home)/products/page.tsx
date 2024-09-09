@@ -12,9 +12,6 @@ import { getMangaCard2 } from "@/actions/home/actions";
 export default async function Produtos() {
  
     const mangas = await getMangaCard2();
-    
- 
-  
 
   return (
     <div className="w-full flex flex-col bg-background min-h-screen">

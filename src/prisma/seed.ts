@@ -275,7 +275,176 @@ async function main() {
       volume: 10,
     },
 
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol1.png",
+      volume: 1,
+    },
 
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol2.png",
+      volume: 2,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol3.png",
+      volume: 3,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol4.png",
+      volume: 4,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol5.png",
+      volume: 5,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol6.png",
+      volume: 6,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol7.png",
+      volume: 7,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol8.png",
+      volume: 8,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol9.png",
+      volume: 9,
+    },
+
+    {
+      title: 'BLACK CLOVER',
+      description: 'magic',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/blackclovervol10.png",
+      volume: 10,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol1.png",
+      volume: 1,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol2.png",
+      volume: 2,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol3.png",
+      volume: 3,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol4.png",
+      volume: 4,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol5.png",
+      volume: 5,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol6.png",
+      volume: 6,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol7.png",
+      volume: 7,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol8.png",
+      volume: 8,
+    },
+
+    {
+      title: 'MONSTER',
+      description: 'mystery',
+      price: 37.99,
+      createdAt: new Date(),
+      image: "/images/monstervol9.png",
+      volume: 9,
+    },
 
     
   ];

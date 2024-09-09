@@ -25,8 +25,8 @@ export default function ProductCard({title, volume, price, image}: ProductCardPr
       {/* Informações do Produto */}
       <div className="text-center flex-grow mb-2">
         <h2 className="text-base text-black uppercase mb-1 font-helveticaRounded">{title}</h2>
-        <p className="text-gray-500 text-xs mb-1 font-helvetica">{volume}</p>
-        <p className="text-lg text-black font-helveticaRounded">{price}</p>
+        <p className="text-gray-500 text-xs mb-1 font-helvetica">Vol. {volume}</p>
+        <p className="text-lg text-black font-helveticaRounded">R$ {price}</p>
       </div>
 
       {/* Botões de Ação */}
