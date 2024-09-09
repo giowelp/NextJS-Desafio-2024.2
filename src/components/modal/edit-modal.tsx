@@ -40,9 +40,9 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave 
           editedProduct.description,
           editedProduct.imageUrl
         );
-        onSave(updatedProduct); // Atualiza o estado no componente pai
-        onClose(); // Fecha o modal após a atualização
-        window.location.reload(); // Recarrega a página para refletir a atualização
+        onSave(updatedProduct); 
+        onClose(); 
+        window.location.reload(); 
       } catch (error) {
         console.error('Erro ao atualizar produto:', error);
       }

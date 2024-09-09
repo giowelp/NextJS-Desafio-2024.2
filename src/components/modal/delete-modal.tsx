@@ -13,17 +13,17 @@ const DeleteModal: React.FC<DeleteModalProps> = ({ isOpen, productName, onClose,
   if (!isOpen) return null;
 
   const handleDelete = async (e: React.MouseEvent) => {
-    e.preventDefault();  // Impede o recarregamento da página
+    e.preventDefault();  
     try {
-      await deleteProduct(id);  // Aguarda a exclusão do produto
-      console.log('Produto deletado no modal com sucesso');  // Log para depuração
-      onDelete();  // Atualiza a lista de produtos
-      onClose();  // Fecha o modal após a exclusão
+      await deleteProduct(id);  
+      console.log('Produto deletado no modal com sucesso'); 
+      onDelete();  
+      onClose();  
 
-      // Coloque o reload fora do try...catch para garantir que sempre será chamado após a exclusão
-      window.location.reload();  // Recarrega a página
+      
+      window.location.reload();  
     } catch (error) {
-      console.error('Erro ao deletar produto no modal:', error);  // Log de erro
+      console.error('Erro ao deletar produto no modal:', error); 
     }
   };
 

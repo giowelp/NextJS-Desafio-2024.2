@@ -43,7 +43,7 @@ const MangaCarousel: React.FC<PropType> = (props) => {
         >
           <div className="flex">
             {mangas.map((manga, index) => (
-              <div className="min-w-0 shrink-0 grow-0 basis-1/6 py-6 flex justify-center" key={index}>
+              <div className="min-w-0 shrink-0 grow-0 basis-1/1 lg:basis-1/6 md:basis-1/3 py-6 flex justify-center" key={index}>
                 <MangaCard image={manga.image} title={manga.title} price={manga.price} volume={manga.volume} />
               </div>
             ))}

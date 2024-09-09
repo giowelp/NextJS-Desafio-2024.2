@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { createProduct } from '@/actions/admin/actions'; // Importando a função de criação do produto
+import { createProduct } from '@/actions/admin/actions'; 
 
 interface Product {
   id: number;
@@ -30,17 +30,17 @@ const CreateModal: React.FC<CreateModalProps> = ({ isOpen, onClose, onCreate }) 
   const handleCreate = async () => {
     if (newProduct.name && newProduct.price && newProduct.description && newProduct.imageUrl) {
       try {
-        // Chama a função para criar um novo produto no backend
+        
         const createdProduct = await createProduct(
           newProduct.name,
           newProduct.volume,
-          parseFloat(newProduct.price.replace('R$', '').trim()), // Converte o preço para número
+          parseFloat(newProduct.price.replace('R$', '').trim()), 
           newProduct.imageUrl
         );
-        onCreate(createdProduct); // Atualiza a lista de produtos no componente pai
-        onClose(); // Fecha o modal
+        onCreate(createdProduct); 
+        onClose(); 
       } catch (error) {
-        console.error('Erro ao criar o produto:', error); // Log de erro
+        console.error('Erro ao criar o produto:', error); 
       }
     }
   };

@@ -54,3 +54,7 @@ export async function getMangaCard2() {
     return mangas;
 
 }
+
+
+
+  
