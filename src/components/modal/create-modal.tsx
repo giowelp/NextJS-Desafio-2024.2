@@ -106,10 +106,10 @@ const CreateModal: React.FC<CreateModalProps> = ({ isOpen, onClose, onCreate }) 
             <Image src={newProduct.imageUrl} alt="Imagem do produto" width={100} height={100} className="rounded" />
           </div>
         )}
-        <button type="button" className="bg-green-500 text-white p-2 rounded mr-2" onClick={handleCreate}>
+        <button type="button" className="bg-green-500 text-white p-2 rounded-full mr-2" onClick={handleCreate}>
           Criar
         </button>
-        <button type="button" className="bg-red-500 text-white p-2 rounded" onClick={onClose}>
+        <button type="button" className="bg-red-500 text-white p-2 rounded-full" onClick={onClose}>
           Cancelar
         </button>
       </div>
