@@ -41,24 +41,17 @@ export default function AdminPage({ mangas }: Product[]) {
     }
   };
 
-  // Função para abrir o modal de edição
   const openModal = (product: MangaCard3) => {
-    console.log('Abrindo modal de edição para produto:', product); // Log para depuração
     setCurrentProduct(product); // Define o produto atual
     setIsModalOpen(true); // Abre o modal de edição
   };
 
-  // Função para fechar o modal de edição
   const closeModal = () => {
     setCurrentProduct(null); // Reseta o produto atual
     setIsModalOpen(false); // Fecha o modal de edição
   };
 
-  // Função para salvar o produto editado
   const handleSaveProduct = (updatedProduct: MangaCard3) => {
-    console.log('Produto salvo:', updatedProduct);
-
-    // Atualiza o produto na lista sem alterar a ordem
     setProducts((prevProducts) => {
       const updatedProducts = prevProducts.map((p) => (p.id === updatedProduct.id ? updatedProduct : p));
       return updatedProducts.sort((a, b) => a.id - b.id); // Ordena a lista por 'id' após a atualização
@@ -68,7 +61,6 @@ export default function AdminPage({ mangas }: Product[]) {
   };
 
   const openDeleteModal = (product: MangaCard3) => {
-    console.log('Abrindo modal de exclusão para produto:', product);
     setProductToDelete(product);
     setIsDeleteModalOpen(true);
   };
@@ -82,35 +74,24 @@ export default function AdminPage({ mangas }: Product[]) {
     if (productToDelete) {
       try {
         await deleteProduct(productToDelete.id); // Exclui o produto no banco de dados
-        console.log('Produto excluído:', productToDelete);
-  
-        // Atualiza a lista de produtos e mantém a ordenação
         setProducts((prevProducts) => {
           const updatedProducts = prevProducts.filter((p) => p.id !== productToDelete.id);
           return updatedProducts.sort((a, b) => a.id - b.id);
         });
-  
+
         closeDeleteModal(); // Fecha o modal de exclusão
       } catch (error) {
-        console.error('Erro ao excluir produto na página Admin:', error); // Log de erro
+        console.error('Erro ao excluir produto na página Admin:', error);
       }
     }
   };
-  
-  // useEffect para manter a página atual se houver produtos suficientes
+
   useEffect(() => {
-    // Recalcula o número total de páginas após a exclusão de um produto
     const updatedTotalPages = Math.ceil(products.length / itemsPerPage);
-  
-    // Ajusta a página atual somente se ela não for válida após a exclusão
     if (currentPage > updatedTotalPages && updatedTotalPages > 0) {
       setCurrentPage(updatedTotalPages); // Ajusta para a última página válida
     }
-  }, [products]); // Executa sempre que 'products' mudar
-  
-  
-  
-  
+  }, [products]);
 
   const openCreateModal = () => {
     setIsCreateModalOpen(true);
@@ -121,7 +102,6 @@ export default function AdminPage({ mangas }: Product[]) {
   };
 
   const handleCreateProduct = (newProduct: MangaCard3) => {
-    console.log('Novo produto criado:', newProduct);
     setProducts((prevProducts) => {
       const updatedProducts = [...prevProducts, newProduct];
       return updatedProducts.sort((a, b) => a.id - b.id); // Ordena a lista por 'id' após a criação
@@ -149,27 +129,26 @@ export default function AdminPage({ mangas }: Product[]) {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-background p-8 relative">
-      <div className="flex w-full max-w-[1600px]">
-        <aside className="w-1/5 sticky top-0 flex flex-col justify-start p-6 space-y-4">
-          <button className="text-lg flex items-center space-x-2" onClick={openCreateModal}>
-            <Plus className="w-5 h-5 text-black" />
-            <span className="font-helveticaLight">Adicionar</span>
-          </button>
-          <button className="text-lg flex items-center space-x-2">
-            <SortAsc className="w-5 h-5 text-black" />
-            <span className="font-helveticaLight">Ordenar</span>
-          </button>
-          <button className="text-lg flex items-center space-x-2">
-            <Filter className="w-5 h-5 text-black" />
-            <span className="font-helveticaLight">Filtrar</span>
-          </button>
-          <button className="text-lg flex items-center space-x-2">
-            <Trash2 className="w-5 h-5 text-black" />
-            <span className="font-helveticaLight">Excluir</span>
-          </button>
+      <div className="flex flex-col md:flex-row w-full max-w-[1600px] overflow-x-auto">
+        {/* Ajuste para botões ficarem no topo em mobile e na lateral em resoluções maiores */}
+        <aside className="flex md:flex-col w-full md:w-1/5 md:sticky md:top-0 md:h-screen justify-start p-6 space-y-4 md:space-y-4">
+          <div className="flex flex-row md:flex-col space-x-4 md:space-x-0 md:space-y-4 mb-4 md:mb-0">
+            <button className="text-lg flex items-center space-x-2" onClick={openCreateModal}>
+              <Plus className="w-5 h-5 text-black" />
+              <span className="font-helveticaLight">Adicionar</span>
+            </button>
+            <button className="text-lg flex items-center space-x-2">
+              <SortAsc className="w-5 h-5 text-black" />
+              <span className="font-helveticaLight">Ordenar</span>
+            </button>
+            <button className="text-lg flex items-center space-x-2">
+              <Filter className="w-5 h-5 text-black" />
+              <span className="font-helveticaLight">Filtrar</span>
+            </button>
+          </div>
         </aside>
 
-        <div className="w-4/5 ml-4 relative overflow-hidden rounded-3xl shadow-lg bg-white p-6">
+        <div className="w-full md:w-4/5 md:ml-4 relative overflow-x-auto rounded-3xl shadow-lg bg-white p-6">
           <table className="min-w-full border-collapse">
             <thead className="bg-white">
               <tr>
@@ -230,13 +209,14 @@ export default function AdminPage({ mangas }: Product[]) {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 z-0">
+      {/* Imagem Musashi ajustada para responsividade - oculta em telas menores */}
+      <div className="absolute bottom-0 left-0 z-0 hidden md:block">
         <Image
           src="/images/musashi5.png"
           alt="Imagem Musashi"
           width={350}
           height={490}
-          className="object-contain"
+          className="object-contain max-w-xs md:max-w-md lg:max-w-lg"
         />
       </div>
 

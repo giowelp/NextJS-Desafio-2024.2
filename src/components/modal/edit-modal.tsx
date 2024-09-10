@@ -8,7 +8,7 @@ interface Product {
   volume: number;
   price: string;
   description: string;
-  imageUrl: string;
+  image: string;
 }
 
 interface EditModalProps {
@@ -19,12 +19,10 @@ interface EditModalProps {
 }
 
 const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave }) => {
-  const [editedProduct, setEditedProduct] = useState<Product | null>(null);
+  const [editedProduct, setEditedProduct] = useState<Product | null>(product);
 
   useEffect(() => {
-    if (product) {
-      setEditedProduct(product);
-    }
+    setEditedProduct(product); // Atualiza o estado quando o produto recebido mudar
   }, [product]);
 
   const handleSave = async (e: React.MouseEvent) => {
@@ -34,15 +32,14 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave 
       try {
         const updatedProduct = await updateProduct(
           editedProduct.id,
-          editedProduct.name,
+          editedProduct.title,
           editedProduct.volume,
           editedProduct.price,
           editedProduct.description,
-          editedProduct.imageUrl
+          editedProduct.image
         );
         onSave(updatedProduct); 
-        onClose(); 
-        window.location.reload(); 
+        onClose();
       } catch (error) {
         console.error('Erro ao atualizar produto:', error);
       }
@@ -67,55 +64,55 @@ const EditModal: React.FC<EditModalProps> = ({ isOpen, product, onClose, onSave 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg p-8 shadow-lg max-w-lg w-full">
-        <h2 className="text-2xl font-semibold mb-4">Editar Produto</h2>
+        <h2 className="text-2xl mb-4 font-helveticaRounded">Editar Produto</h2>
         <div className="mb-4">
-          <label className="block mb-2">Nome</label>
+          <label className="block mb-2 font-helvetica">Nome</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
-            value={editedProduct.name}
+            className="w-full p-2 border rounded font-helvetica"
+            value={editedProduct.title}
             onChange={(e) => setEditedProduct({ ...editedProduct, name: e.target.value })}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2">Volume</label>
+          <label className="block mb-2 font-helvetica">Volume</label>
           <input
             type="number"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded font-helvetica" 
             value={editedProduct.volume}
             onChange={(e) => setEditedProduct({ ...editedProduct, volume: Number(e.target.value) })}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2">Preço</label>
+          <label className="block mb-2 font-helvetica">Preço</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded font-helvetica"
             value={editedProduct.price}
             onChange={(e) => setEditedProduct({ ...editedProduct, price: e.target.value })}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2">Descrição</label>
+          <label className="block mb-2 font-helvetica">Descrição</label>
           <textarea
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded font-helvetica"
             value={editedProduct.description}
             onChange={(e) => setEditedProduct({ ...editedProduct, description: e.target.value })}
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2">Imagem</label>
+          <label className="block mb-2 font-helvetica">Imagem</label>
           <input type="file" className="w-full p-2" onChange={handleImageUpload} />
         </div>
-        {editedProduct.imageUrl && (
+        {editedProduct.image && (
           <div className="mb-4">
-            <Image src={editedProduct.imageUrl} alt="Imagem do produto" width={100} height={100} className="rounded" />
+            <Image src={editedProduct.image} alt="Imagem do produto" width={100} height={100} className="rounded" />
           </div>
         )}
-        <button className="bg-blue-500 text-white p-2 rounded mr-2" onClick={handleSave}>
+        <button className="bg-blue-500 text-white p-2 rounded-full mr-2 font-helvetica" onClick={handleSave}>
           Salvar
         </button>
-        <button className="bg-red-500 text-white p-2 rounded" onClick={(e) => { e.preventDefault(); onClose(); }}>
+        <button className="bg-red-500 text-white p-2 rounded-full font-helvetica" onClick={(e) => { e.preventDefault(); onClose(); }}>
           Cancelar
         </button>
       </div>

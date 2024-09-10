@@ -110,8 +110,10 @@ export default function Header() {
           </Link>
           <Link href="/contact" className="text-black">
             <Phone className="w-6 h-6 text-black cursor-pointer" />
-          </Link>
+          </Link >
+          <Link href="/admin" className="text-black">
           <ShoppingCart className="w-6 h-6 text-black cursor-pointer" />
+          </Link>
         </div>
 
         <button className="lg:hidden ml-4" onClick={toggleMenu}>

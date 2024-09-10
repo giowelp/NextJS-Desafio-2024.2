@@ -7,6 +7,20 @@ import MangaCarousel from "@/components/carousel/carousel";
 import { EmblaOptionsType } from 'embla-carousel'
 import { Manga } from "@prisma/client";
 import { getMangaCard } from "@/actions/home/actions";
+import { get } from "http";
+import getApi from "@/api/get-sessao";
+import Mission from "@/components/mission/mission";
+
+type ApiProps = {
+    id: number;
+    title: string;
+    text: string;
+}
+
+type ApiData = {
+    identities: ApiProps[];
+    status: number;
+}
 
 const OPTIONS: EmblaOptionsType = { loop: true }
 const SLIDE_COUNT = 10
@@ -22,6 +36,9 @@ export default async function Home() {
       
       <MangaCarousel slides={SLIDES} options={OPTIONS} title="Lançamentos" mangas={mangas}/>
       <MangaCarousel slides={SLIDES} options={OPTIONS} title="Mais Vendidos" mangas={mangas}/>
+
+      <Mission />
+
     </div>
   );
 } 

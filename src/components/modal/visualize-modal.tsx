@@ -22,7 +22,7 @@ const ViewModal: React.FC<ViewModalProps> = ({ isOpen, product, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg p-8 shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-semibold mb-4">{product.title}</h2>
+        <h2 className="text-2xl font-helveticaRounded mb-4">{product.title}</h2>
         <div className="flex items-center mb-4">
           {product.image && ( 
             <Image
@@ -34,12 +34,12 @@ const ViewModal: React.FC<ViewModalProps> = ({ isOpen, product, onClose }) => {
             />
           )}
           <div>
-            <p><strong>Volume:</strong> {product.volume}</p>
-            <p><strong>Preço:</strong> {product.price}</p>
-            <p><strong>Descrição:</strong> {product.description}</p>
+            <p className='font-helvetica'><strong>Volume:</strong> {product.volume}</p>
+            <p className='font-helvetica'><strong>Preço:</strong> R$ {product.price}</p>
+            <p className='font-helvetica'><strong>Descrição:</strong> {product.description}</p>
           </div>
         </div>
-        <button className="bg-blue-500 text-white p-2 rounded" onClick={onClose}>
+        <button className="bg-blue-500 text-white p-2 rounded-full" onClick={onClose}>
           Fechar
         </button>
       </div>
